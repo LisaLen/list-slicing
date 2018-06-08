@@ -224,18 +224,13 @@ def custom_reverse(input_list):
 
     """
 
-    temp_lst = list()
+    temp_val = None
 
-    for item in range(len(input_list)):
+    for item in range(int(len(input_list)/2)):
         k = len(input_list) - 1 - item
-        temp_list = custom_append(temp_lst, input_list[k])
-        
-        
-    k = 0
-    for  item in range(len(input_list)):
-        input_list[item] = temp_lst[k]
-        k += 1
-
+        temp_val = input_list[item]
+        input_list[item] = input_list[k]
+        input_list[k] = temp_val
 
     return None
     
@@ -257,14 +252,11 @@ def custom_contains(input_list, value):
         True
 
     """
-    flag = False
-
     for item in input_list:
         if item == value:
-            flag = True
-            break
+            return True
 
-    return flag
+    return False
         
 
 
@@ -284,16 +276,14 @@ def custom_equality(some_list, another_list):
         False
 
 """
-    flag = True
     if len(some_list) != len(another_list):
         return False
 
     for item in range(len(some_list)):
         if some_list[item] != another_list[item]:
-            flag = False
-            break
+            return False
 
-    return flag
+    return True
 
 
 ##############################################################################
